@@ -38,26 +38,23 @@ If you have a question, the best place to start is Zulip e.g. the https://chat.f
 ## How to Contribute to HL7 AU Test Data
 We value contributions to **au-fhir-test-data**. Here’s how you can help:
 
-### 1. Communicate Before You Start
+### Building
+
+0. Install the dotnet framework in the appropriate version.
+1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
+2. Type `BuildCsvFhirMapping.bat` or `BuildTestDataClient.bat`. This will execute a batch file that builds.
+
+### Communicate Before You Start
 - Open a [GitHub issue](https://github.com/hl7au/au-fhir-test-data/issues) to discuss your plans to help avoid duplication of effort, align and prioritise your contributions based on the scope of the project - refer to the [HL7 AU Test Data Project Scope Statement](https://confluence.hl7.org/display/HA/HL7+Australia+Project+Registry?preview=/184927329/248874957/Test%20Data%20Project%201.2.pdf).
 - Join the fortnightly HL7 AU Infrastructure and Tooling Community Meetings ([register here](https://confluence.hl7.org/display/HAFWG/Infrastructure+and+Tooling+Contact+List)) where we discuss and triage issues. Feel free to add your issue to the [meeting agenda](https://confluence.hl7.org/pages/viewpage.action?pageId=265492851#CommunityMeetingAgendaandMinutes-MeetingDetails) and we'll aim to discuss your issue/ proposed contribution when you are present at the meeting.
 - Use Zulip to connect with the team and community asynchronously: 
   - Specific topic for the HL7 AU Test Data project: [AU FHIR Test Data](https://chat.fhir.org/#narrow/stream/179173-australia/topic/AU.20FHIR.20Test.20Data)
   - General: [Australia Stream](https://chat.fhir.org/#narrow/stream/179173-australia)
 
-### 2. Contribute Code
+### Contribute Code
 1. Fork this repository.
 2. Create a branch and use the GitHub issue number followed by a meaningful description as the branch name for your test data contribution, sticking to lowercase and hyphens to separate words. For example, the following is a branch for GitHub issue #123 for adding resources with logical references: `123-logical-refs`
 3. Make your contributions/ changes.
 4. Submit a pull request (PR) for review.
 5.  Once the PR has been reviewed and feedback addressed collaboratively, it will be merged into the main branch.
 
-# Test Data Command Line Utilities
-There are two command line utilities to generate the FHIR JSON files and upload the generated test data to a FHIR Server. These utilites are developed using DotNet.  
-Note: The test data utilities are being transitioned from [`hl7au / au-fhir-test-data`](https://github.com/hl7au/au-fhir-test-data) to [`hl7au / au-fhir-test-data-utils`](https://github.com/hl7au/au-fhir-test-data-utils) to separate the tools for generating and managing FHIR test data from the repository containing the data itself. This transition includes integrating the new utilities into the GitHub Actions workflows of `hl7au / au-fhir-test-data` to streamline automation and test data management.
-
-### Building
-
-0. Install the dotnet framework in the appropriate version.
-1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
-2. Type `BuildCsvFhirMapping.bat` or `BuildTestDataClient.bat`. This will execute a batch file that builds.
