@@ -37,20 +37,34 @@ If you have a question, the best place to start is Zulip e.g. the https://chat.f
 ## How to Contribute to HL7 AU Test Data Utils
 We value contributions to **au-fhir-test-data-utils**. Here’s how you can help:
 
+## Working on `Csv2FhirMapping` or `TestDataClient`
+
+### Setup
+
+The following steps are for Windows. However, none of the dependencies are native, so with a little bit of understanding of the shell, you should be able to use Unix-flavors (Mac, Linux, ...) as well.
+
+1. Install [.Net SDK 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
+2. (Optional) Install [VSCode](https://code.visualstudio.com/Download).
+
 ### Building
 
-0. Install the dotnet framework in the appropriate version.
 1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
 2. Type `BuildCsvFhirMapping.bat` or `BuildTestDataClient.bat`. This will execute a batch file that builds.
 
-### Communicate Before You Start
+### Editing and Debugging
+
+0. Open IDE.
+1. Change into the respective subdirectory.
+2. Become [Peter Parker](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility).
+
+### Communicating Intent
 - Open a [GitHub issue](https://github.com/hl7au/au-fhir-test-data/issues) to discuss your plans to help avoid duplication of effort, align and prioritise your contributions based on the scope of the project - refer to the [HL7 AU Test Data Project Scope Statement](https://confluence.hl7.org/display/HA/HL7+Australia+Project+Registry?preview=/184927329/248874957/Test%20Data%20Project%201.2.pdf).
 - Join the fortnightly HL7 AU Infrastructure and Tooling Community Meetings ([register here](https://confluence.hl7.org/display/HAFWG/Infrastructure+and+Tooling+Contact+List)) where we discuss and triage issues. Feel free to add your issue to the [meeting agenda](https://confluence.hl7.org/pages/viewpage.action?pageId=265492851#CommunityMeetingAgendaandMinutes-MeetingDetails) and we'll aim to discuss your issue/ proposed contribution when you are present at the meeting.
 - Use Zulip to connect with the team and community asynchronously: 
   - Specific topic for the HL7 AU Test Data project: [AU FHIR Test Data](https://chat.fhir.org/#narrow/stream/179173-australia/topic/AU.20FHIR.20Test.20Data)
   - General: [Australia Stream](https://chat.fhir.org/#narrow/stream/179173-australia)
 
-### Contribute Code
+### Contributing Code
 1. Fork this repository.
 2. Create a branch and use the GitHub issue number followed by a meaningful description as the branch name for your test data contribution, sticking to lowercase and hyphens to separate words. For example, the following is a branch for GitHub issue #123 for adding resources with logical references: `123-logical-refs`
 3. Make your contributions/ changes.
