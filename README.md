@@ -1,13 +1,19 @@
 # au-fhir-test-data-utils
 # HL7 AU FHIR Test Data Utilities
 
-This repository also contains source code for command line utilities used to generate the FHIR JSON files and upload them to a FHIR Server. These tools are closely related  to [`au-fhir-test-data`](https://github.com/hl7au/au-fhir-test-data), a repository designed for the maintenance of a small example data set To demonstrate the functionality of the HL 7 AU standards.
+This repository contains source code for command line utilities used to generate the FHIR JSON files and upload them to a FHIR Server. These tools are closely related  to [`au-fhir-test-data`](https://github.com/hl7au/au-fhir-test-data), a repository designed for the maintenance of a small example data set To demonstrate the functionality of the HL 7 AU standards.
 
 There are three tools in this repository:
 
-* `Sparked.Csv2FhirMapping` expands comma separated value files into JSON FHIR resources. 
-* `Sparked.TestDataClient` uploads the values to a server 
+* `Csv2FhirMapping` expands comma separated value files into JSON FHIR resources. 
+* `TestDataClient` uploads the values to a server 
 * `xls-converter` converter adjusts some content of excel fields according to yields
+
+State of the code:
+
+* None of these tools at the current time have any automated tests.
+* `Csv2FhirMapping` and `TestDataClient` have a Github-actions-based ci build, which publishes [Zip archives of release binaries on tag](https://github.com/hl7au/au-fhir-test-data-utils/releases) for arch arm/win and os linux/win.
+* `xls-converter` has a Github-actions-based ci build, which publishes [Zip archives of release binaries on tag](https://github.com/hl7au/au-fhir-test-data-utils/releases) of the package.
 
 ## Did you find an error?
 We appreciate your contributions to improving au-fhir-test-data. **If you encounter any bugs or defects, please follow the steps below to report them**:
@@ -50,107 +56,8 @@ We value contributions to **au-fhir-test-data**. Here’s how you can help:
 There are two command line utilities to generate the FHIR JSON files and upload the generated test data to a FHIR Server. These utilites are developed using DotNet.  
 Note: The test data utilities are being transitioned from [`hl7au / au-fhir-test-data`](https://github.com/hl7au/au-fhir-test-data) to [`hl7au / au-fhir-test-data-utils`](https://github.com/hl7au/au-fhir-test-data-utils) to separate the tools for generating and managing FHIR test data from the repository containing the data itself. This transition includes integrating the new utilities into the GitHub Actions workflows of `hl7au / au-fhir-test-data` to streamline automation and test data management.
 
-## Sparked.Csv2FhirMapping
-The Sparked.Csv2FhirMapping is a utility that maps the CSV files located in the testdata-csv folder and generates the FHIR JSON files. 
-The Sparked.Csv2FhirMapping.sln has a dependency on the `fhir-net-mappinglanguage` submodule, which needs to be initialised as part of cloning this repo, or if you have already clone this repository you can initialise the submodule retrospectively.
-
-### Initialise submodules as part of cloning the repo
-```
-$ git clone --recurse-submodules https://github.com/hl7au/au-fhir-test-data.git
-
-```
-
-### Retrospectively initialise submodules after cloning the repo
-```
-$ git submodule update --init
-
-```
-After executing the submodule update command, the `fhir-net-mappinglanguage` will no longer be empty.
-
-### Building Sparked.Csv2FhirMapping
+### Building
 
 0. Install the dotnet framework in the appropriate version.
 1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
-2. Type `BuildCsvFhirMapping.bat`. This will execute a batch file that builds.
-
-
-### Generate data
-
-#### Generate Specific Data
-
-1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
-2. Type `GenerateData.bat ` followed by an output directory and resource type. This will execute a batch file that generates.
-
-Usage:
-```
-GenerateData.bat output-folder resource-type
-```
-
-Example with local directory `generated` and resource type `Patient`: 
-```
-GenerateData.bat generated Patient
-```
-
-#### Generate All Data
-
-1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
-2. Type `GenerateAll.bat `. This will execute a batch file that generates all.
-
-Usage:
-```
-GenerateAll.bat
-```
-
-## Upload Data
-The Sparked.TestDataClient is a command line utility that uploads a batch of FHIR JSON files to a FHIR Server.
-
-### Building Sparked.TestDataClient
-
-0. Install the dotnet framework in the appropriate version.
-1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
-2. Type `BuildTestDataClient.bat`. This will execute a batch file that builds.
-
-### Uploading
-
-#### Upload specific data
-
-1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
-2. Type `UploadData.bat `. This will execute a batch file that uploads all to the fhir-server of the specified resource-type located in the input-folder. The FHIR server request's Authorization header is generated using the  auth-scheme and auth-parameter arguments.
-
-Usage:
-```
-UploadData.bat fhir-server auth-scheme auth-parameter input-folder resource-type
-```
-
-Example: 
-```
-UploadData.bat https://fhir.hl7.org.au/aucore/fhir/DEFAULT Basic {{base64-encouded-userid:password}} generated Patient
-```
-
-#### Upload all generated data
-1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
-2. Type `UploadGenerated.bat `. This will execute a batch file that uploads all to the fhir-server all data located in the folder `generated`. The FHIR server request's Authorization header is generated using the  auth-scheme and auth-parameter arguments.
-
-Usage:
-```
-UploadGenerated.bat fhir-server auth-scheme auth-parameter
-```
-
-Example: 
-```
-UploadGenerated.bat https://fhir.hl7.org.au/aucore/fhir/DEFAULT Basic {{base64-encouded-userid:password}}
-```
-
-#### Upload all generated eRequesting data
-1. Open a Command Prompt `cmd` ([advice](https://www.digitalcitizen.life/open-cmd/))
-2. Type `UploadERequesting.bat `. This will execute a batch file that uploads all to the fhir-server all eRequesting data located in the folder `generated`. The FHIR server request's Authorization header is generated using the  auth-scheme and auth-parameter arguments.
-
-Usage:
-```
-UploadERequesting.bat fhir-server auth-scheme auth-parameter
-```
-
-Example: 
-```
-UploadERequesting.bat https://fhir.hl7.org.au/aucore/fhir/DEFAULT Basic {{base64-encouded-userid:password}}
-```
+2. Type `BuildCsvFhirMapping.bat` or `BuildTestDataClient.bat`. This will execute a batch file that builds.
