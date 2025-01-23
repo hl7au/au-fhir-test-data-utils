@@ -1,4 +1,3 @@
-# au-fhir-test-data-utils
 # HL7 AU FHIR Test Data Utilities
 
 This repository contains source code for command line utilities used to generate the FHIR JSON files and upload them to a FHIR Server. These tools are closely related  to [`au-fhir-test-data`](https://github.com/hl7au/au-fhir-test-data), a repository designed for the maintenance of a small example data set To demonstrate the functionality of the HL 7 AU standards.
