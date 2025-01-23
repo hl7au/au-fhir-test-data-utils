@@ -9,3 +9,4 @@
 /*.log
 */dist/*
 /xls-converter/xls_converter/__pycache__/
+/out/
