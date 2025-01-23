@@ -35,8 +35,8 @@ Description: A detailed description of the issue, including:
 ### Questions?
 If you have a question, the best place to start is Zulip e.g. the https://chat.fhir.org/#narrow/stream/179173-australia/topic/AU.20FHIR.20Test.20Data topic
 
-## How to Contribute to HL7 AU Test Data
-We value contributions to **au-fhir-test-data**. Here’s how you can help:
+## How to Contribute to HL7 AU Test Data Utils
+We value contributions to **au-fhir-test-data-utils**. Here’s how you can help:
 
 ### Building
 
