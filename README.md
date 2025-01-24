@@ -18,10 +18,10 @@ State of the code:
 We appreciate your contributions to improving au-fhir-test-data. **If you encounter any bugs or defects, please follow the steps below to report them**:
 
 ### 1. Search for Existing Issues
-Before submitting a new issue, please search the GitHub [Issues list](https://github.com/hl7au/au-fhir-test-data/issues) to check if your issue has already been reported. If you find an existing issue, you can add your comments or additional information to it.
+Before submitting a new issue, please search the GitHub [Issues list](https://github.com/hl7au/au-fhir-test-data-utils/issues) to check if your issue has already been reported. If you find an existing issue, you can add your comments or additional information to it.
 
 ### 2. Open a New Issue
-If you do not find a similar issue, you can open a [new one](https://github.com/hl7au/au-fhir-test-data/issues). Click on the New Issue button and provide the following details:
+If you do not find a similar issue, you can open a [new one](https://github.com/hl7au/au-fhir-test-data-utils/issues). Click on the New Issue button and provide the following details:
 
 ```
 Title: A brief and descriptive title for the issue.
@@ -58,7 +58,7 @@ The following steps are for Windows. However, none of the dependencies are nativ
 2. Become [Peter Parker](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility).
 
 ### Communicating Intent
-- Open a [GitHub issue](https://github.com/hl7au/au-fhir-test-data/issues) to discuss your plans to help avoid duplication of effort, align and prioritise your contributions based on the scope of the project - refer to the [HL7 AU Test Data Project Scope Statement](https://confluence.hl7.org/display/HA/HL7+Australia+Project+Registry?preview=/184927329/248874957/Test%20Data%20Project%201.2.pdf).
+- Open a [GitHub issue](https://github.com/hl7au/au-fhir-test-data-utils/issues) to discuss your plans to help avoid duplication of effort, align and prioritise your contributions based on the scope of the project - refer to the [HL7 AU Test Data Project Scope Statement](https://confluence.hl7.org/display/HA/HL7+Australia+Project+Registry?preview=/184927329/248874957/Test%20Data%20Project%201.2.pdf).
 - Join the fortnightly HL7 AU Infrastructure and Tooling Community Meetings ([register here](https://confluence.hl7.org/display/HAFWG/Infrastructure+and+Tooling+Contact+List)) where we discuss and triage issues. Feel free to add your issue to the [meeting agenda](https://confluence.hl7.org/pages/viewpage.action?pageId=265492851#CommunityMeetingAgendaandMinutes-MeetingDetails) and we'll aim to discuss your issue/ proposed contribution when you are present at the meeting.
 - Use Zulip to connect with the team and community asynchronously: 
   - Specific topic for the HL7 AU Test Data project: [AU FHIR Test Data](https://chat.fhir.org/#narrow/stream/179173-australia/topic/AU.20FHIR.20Test.20Data)
