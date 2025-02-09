@@ -64,7 +64,7 @@ jobs:
         name: Csv2FhirMapping-linux-x64-binaries
         path: /tmp
     - name: Prepare to run
-      run: chmod +x /tmp/Csv2FhirMapping-linux-x64-binaries/Csv2Fhir
+      run: find /tmp && chmod +x /tmp/Csv2FhirMapping-linux-x64-binaries/Csv2Fhir
     - name: Run converter
       run: |
         find . &&
