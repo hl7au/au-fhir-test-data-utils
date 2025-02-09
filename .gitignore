@@ -9,3 +9,5 @@
 /*.log
 */dist/*
 /xls-converter/xls_converter/__pycache__/
+Sparked.Csv2FhirMapping/test/Csv2FhirMapping-linux-arm64-binaries/*
+Sparked.Csv2FhirMapping/test/Csv2FhirMapping-linux-arm64.zip
