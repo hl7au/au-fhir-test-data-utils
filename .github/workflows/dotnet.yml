@@ -64,12 +64,11 @@ jobs:
         name: Csv2FhirMapping-linux-x64-binaries
         path: /tmp
     - name: Prepare to run
-      run: find /tmp && chmod +x /tmp/Csv2FhirMapping-linux-x64-binaries/Csv2Fhir
+      run: chmod +x /tmp/Csv2Fhir
     - name: Run converter
       run: |
-        find . &&
         cd Sparked.Csv2FhirMapping/test &&
-        /tmp/Csv2FhirMapping-linux-x64-binaries/Csv2Fhir Medication ./medication.csv ./output/
+        /tmp/Csv2Fhir Medication ./medication.csv ./output/
     - name: Check output
       id: git-diff-action
       run: echo "changed=$(git status --porcelain=v1 2>/dev/null | wc -l | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
