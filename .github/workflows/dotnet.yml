@@ -43,7 +43,7 @@ jobs:
                --os ${{ matrix.os }} \
                --configuration Release \
                -p:PublishSingleFile=True \
-               --framework net70 \
+               --framework net80 \
                --self-contained true \
                --output "Sparked.${{ matrix.program }}-${{ matrix.os }}-${{ matrix.arch }}Output"
     - name: Archive production artifacts
