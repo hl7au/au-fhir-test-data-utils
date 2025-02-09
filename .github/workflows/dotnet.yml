@@ -52,10 +52,34 @@ jobs:
         name: ${{ matrix.program }}-${{ matrix.os }}-${{ matrix.arch }}-binaries
         path: |
           Sparked.${{ matrix.program }}-${{ matrix.os }}-${{ matrix.arch }}Output
+  Test-Dot-Net:
+    needs:
+    - Build-Dot-Net
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: Csv2FhirMapping-linux-x64-binaries
+        path: /tmp
+    - name: Prepare to run
+      run: chmod +x /tmp/Csv2FhirMapping-linux-x64-binaries/Csv2Fhir
+    - name: Run converter
+      run: |
+        find . &&
+        cd Sparked.Csv2FhirMapping/test &&
+        /tmp/Csv2FhirMapping-linux-x64-binaries/Csv2Fhir Medication ./medication.csv ./output/
+    - name: Check output
+      id: git-diff-action
+      run: echo "changed=$(git status --porcelain=v1 2>/dev/null | wc -l | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
+    - if: steps.git-diff-action.outputs.changed != '0'
+      name: Fail
+      run: git diff | cat && exit -1
   Release:
     if: contains(github.ref, 'tags/v')
     needs:
-    - Build-Dot-Net
+    - Test-Dot-Net
     - Build-Python
     runs-on: ubuntu-latest
     steps:
