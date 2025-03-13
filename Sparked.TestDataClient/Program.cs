@@ -200,6 +200,48 @@ internal class Program
                                     updatedResource = client.Update<Provenance>(provenance);
                                     break;
 
+                                case "RelatedPerson":
+                                    var relatedPerson = JsonSerializer.Deserialize<RelatedPerson>(fileStream, serializerOptions);
+                                    resourceId = relatedPerson.Id;
+                                    updatedResource = client.Update<RelatedPerson>(relatedPerson);
+                                    break;
+
+                                case "Coverage":
+                                    var coverage = JsonSerializer.Deserialize<Coverage>(fileStream, serializerOptions);
+                                    resourceId = coverage.Id;
+                                    updatedResource = client.Update<Coverage>(coverage);
+                                    break;
+
+                                case "Specimen":
+                                    var specimen = JsonSerializer.Deserialize<Specimen>(fileStream, serializerOptions);
+                                    resourceId = specimen.Id;
+                                    updatedResource = client.Update<Specimen>(specimen);
+                                    break;
+
+                                case "CommunicationRequest":
+                                    var commReq = JsonSerializer.Deserialize<CommunicationRequest>(fileStream, serializerOptions);
+                                    resourceId = commReq.Id;
+                                    updatedResource = client.Update<CommunicationRequest>(commReq);
+                                    break;
+
+                                case "Consent":
+                                    var consent = JsonSerializer.Deserialize<Consent>(fileStream, serializerOptions);
+                                    resourceId = consent.Id;
+                                    updatedResource = client.Update<Consent>(consent);
+                                    break;
+
+                                case "ServiceRequest":
+                                    var servReq = JsonSerializer.Deserialize<ServiceRequest>(fileStream, serializerOptions);
+                                    resourceId = servReq.Id;
+                                    updatedResource = client.Update<ServiceRequest>(servReq);
+                                    break;
+
+                                case "Task":
+                                    var task = JsonSerializer.Deserialize<Task>(fileStream, serializerOptions);
+                                    resourceId = task.Id;
+                                    updatedResource = client.Update<Task>(task);
+                                    break;
+
                                 default:
                                     throw new ArgumentException("resourceType " + resourceType + " not supported");
                             }
