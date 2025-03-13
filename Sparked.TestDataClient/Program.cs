@@ -44,6 +44,7 @@ internal class Program
             {
                 Timeout = 120000,
                 PreferredFormat = ResourceFormat.Json,
+                ExplicitFhirVersion = "4.0.1",
                 VerifyFhirVersion = true,
                 ReturnPreference = ReturnPreference.Minimal
             };
@@ -240,6 +241,12 @@ internal class Program
                                     var task = JsonSerializer.Deserialize<Task>(fileStream, serializerOptions);
                                     resourceId = task.Id;
                                     updatedResource = client.Update<Task>(task);
+                                    break;
+
+                                case "HealthcareService":
+                                    var healthServ = JsonSerializer.Deserialize<HealthcareService>(fileStream, serializerOptions);
+                                    resourceId = healthServ.Id;
+                                    updatedResource = client.Update<HealthcareService>(healthServ);
                                     break;
 
                                 default:
