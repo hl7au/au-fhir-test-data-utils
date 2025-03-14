@@ -44,6 +44,7 @@ internal class Program
             {
                 Timeout = 120000,
                 PreferredFormat = ResourceFormat.Json,
+                ExplicitFhirVersion = "4.0.1",
                 VerifyFhirVersion = true,
                 ReturnPreference = ReturnPreference.Minimal
             };
@@ -212,12 +213,6 @@ internal class Program
                                     updatedResource = client.Update<Coverage>(coverage);
                                     break;
 
-                                case "Specimen":
-                                    var specimen = JsonSerializer.Deserialize<Specimen>(fileStream, serializerOptions);
-                                    resourceId = specimen.Id;
-                                    updatedResource = client.Update<Specimen>(specimen);
-                                    break;
-
                                 case "CommunicationRequest":
                                     var commReq = JsonSerializer.Deserialize<CommunicationRequest>(fileStream, serializerOptions);
                                     resourceId = commReq.Id;
@@ -237,9 +232,15 @@ internal class Program
                                     break;
 
                                 case "Task":
-                                    var task = JsonSerializer.Deserialize<Task>(fileStream, serializerOptions);
+                                    var task = JsonSerializer.Deserialize<Hl7.Fhir.Model.Task>(fileStream, serializerOptions);
                                     resourceId = task.Id;
-                                    updatedResource = client.Update<Task>(task);
+                                    updatedResource = client.Update<Hl7.Fhir.Model.Task>(task);
+                                    break;
+
+                                case "HealthcareService":
+                                    var healthServ = JsonSerializer.Deserialize<HealthcareService>(fileStream, serializerOptions);
+                                    resourceId = healthServ.Id;
+                                    updatedResource = client.Update<HealthcareService>(healthServ);
                                     break;
 
                                 default:
