@@ -68,7 +68,8 @@ jobs:
     - name: Run converter
       run: |
         cd Sparked.Csv2FhirMapping/test &&
-        /tmp/Csv2Fhir Medication ./medication.csv ./output/
+        /tmp/Csv2Fhir Medication ./medication.csv ./output/ &&
+        /tmp/Csv2Fhir HealthcareService ./healthcareservice.csv ./output/
     - name: Check output
       id: git-diff-action
       run: echo "changed=$(git status --porcelain=v1 2>/dev/null | wc -l | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
