@@ -1,0 +1,15 @@
+name: Convert CSV to JSON
+
+on:
+  workflow_dispatch
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: python -m xls_converter.main ${{ github.event.inputs.xlsFile }} testdata-csv
+    - name: Install deps
+      uses: ./.github/deps
+    - name: Convert to json
+      uses: ./.github/fhirmapping

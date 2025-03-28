@@ -1,7 +1,7 @@
 name: Validate
 
 on:
-  pull_request
+  workflow_dispatch
 
 
 jobs:
@@ -20,8 +20,6 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Update generated files
-    - name: Validate
-      uses: ./.github/validate
     - name: Report
       uses: ./.github/report
       with:
