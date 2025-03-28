@@ -18,3 +18,10 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Update generated files
+  Protect Master:
+    runs-on: ubuntu-latest
+    needs: Convert
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Do not run on master branch
+        run: echo "Convert actions should not run on master branch" && exit 1
