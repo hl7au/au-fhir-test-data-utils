@@ -107,7 +107,7 @@ jobs:
     strategy:
       matrix:
         program: [Csv2FhirMapping, TestDataClient]
-        os: [win, linux]
+        os: [win, linux, osx]
         arch: [x64, arm64]
     runs-on: ubuntu-latest
     steps:
